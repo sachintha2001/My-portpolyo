@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CustomCursor } from "@/components/shared/CustomCursor";
 import { CommandPalette } from "@/components/shared/CommandPalette";
+import { Chatbot } from "@/components/shared/Chatbot";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -41,6 +42,7 @@ export default function RootLayout({
         >
           <CustomCursor />
           <CommandPalette />
+          <Chatbot />
           <main className="relative flex min-h-screen flex-col">
             {children}
           </main>

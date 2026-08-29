@@ -35,29 +35,35 @@ export function ContactSection() {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     try {
-      // NOTE: Replace with actual EmailJS credentials
-      await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        {
-          from_name: data.name,
-          from_email: data.email,
-          subject: data.subject,
-          message: data.message,
-        },
-        "YOUR_PUBLIC_KEY"
-      );
-      setIsSuccess(true);
-      reset();
-      setTimeout(() => setIsSuccess(false), 5000);
-    } catch (error) {
-      console.error("Error sending email:", error);
-      // Fallback for demo purposes if credentials aren't set
-      setTimeout(() => {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey) {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            from_name: data.name,
+            from_email: data.email,
+            subject: data.subject,
+            message: data.message,
+          },
+          publicKey
+        );
         setIsSuccess(true);
         reset();
         setTimeout(() => setIsSuccess(false), 5000);
-      }, 1500);
+      } else {
+        console.warn("EmailJS credentials missing. Simulating success for demo purposes.");
+        setTimeout(() => {
+          setIsSuccess(true);
+          reset();
+          setTimeout(() => setIsSuccess(false), 5000);
+        }, 1500);
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -122,7 +128,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-muted-foreground mb-1">Phone</h4>
-                      <p className="text-foreground">+94 (XXX) XXX XXX</p>
+                      <p className="text-foreground">+94 (70) 1552581</p>
                     </div>
                   </div>
 
@@ -132,7 +138,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-muted-foreground mb-1">Location</h4>
-                      <p className="text-foreground">Sri Lanka</p>
+                      <p className="text-foreground">Ahangama, Galle, Sri Lanka</p>
                     </div>
                   </div>
                 </div>
@@ -144,7 +150,7 @@ export function ContactSection() {
                   <a href="https://github.com/sachintha2001" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-lg hover:border-primary hover:text-primary transition-colors">
                     <Github className="w-5 h-5" />
                   </a>
-                  <a href="#" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-lg hover:border-primary hover:text-primary transition-colors">
+                  <a href="https://www.linkedin.com/in/sachintha-bro" target="_blank" rel="noopener noreferrer" className="p-3 bg-background border border-border rounded-lg hover:border-primary hover:text-primary transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 </div>
