@@ -157,7 +157,7 @@ export function HeroSection() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a 
-                href="https://drive.google.com/file/d/1rm9n2rZJ1GtdsaZlwiGnt_vm8-O7rqfz/view?usp=share_link/" 
+                href="https://drive.google.com/file/d/1JCOlZGCoZLTd1zQjylk1CpQhNFzmuf4A/view?usp=share_link/" 
                 target="_blank"
                 className="group flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 glass text-foreground rounded-full font-medium transition-all hover:bg-white/10 hover:scale-105"
               >
