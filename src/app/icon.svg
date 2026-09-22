@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1324"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="bracketL" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="bracketR" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.75"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect x="6" y="6" width="116" height="116" rx="30" fill="url(#bg)" stroke="url(#border)" stroke-width="2.5"/>
+
+  <!-- Left Code Bracket < -->
+  <path d="M 36 42 L 20 64 L 36 86" fill="none" stroke="url(#bracketL)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Right Code Bracket > -->
+  <path d="M 92 42 L 108 64 L 92 86" fill="none" stroke="url(#bracketR)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Center 'S' Bold Monogram -->
+  <path d="M 76 46 C 76 38 69 33 60 33 C 49 33 42 39 42 49 C 42 58 48 62 58 64.5 L 65 66.5 C 75 69 81 74 81 83 C 81 93 72 99 60 99 C 48 99 41 92 41 84"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="9.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Glowing Accent Dot for R.K.S. -->
+  <circle cx="77" cy="96" r="4.5" fill="#14b8a6"/>
+</svg>

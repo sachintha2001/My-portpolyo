@@ -19,6 +19,13 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "R.K Sachintha Dhansanka | Software Engineer",
   description: "Portfolio of R.K Sachintha Dhansanka, a Software Engineer and AI & IoT Enthusiast.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-icon.png",
+  },
   manifest: "/manifest.json",
 };
 
