@@ -143,27 +143,49 @@ export function ProjectsSection() {
         if (!response.ok) throw new Error("Failed to fetch");
         const repos = await response.json();
 
-        const fetchedProjects: Project[] = repos
-          .filter((repo: any) => !repo.fork) // Exclude forks
-          .map((repo: any) => ({
-            id: repo.id.toString(),
-            title: repo.name.replace(/[-_]/g, " "),
-            description: repo.description || "No description provided.",
-            longDescription: repo.description || "No description provided for this repository.",
-            image: `https://opengraph.githubassets.com/1/sachintha2001/${repo.name}`,
-            tags: repo.topics && repo.topics.length > 0 ? repo.topics : (repo.language ? [repo.language] : []),
-            github: repo.html_url,
-            demo: repo.homepage && repo.homepage !== "" ? repo.homepage : "#",
-            featured: false,
-          }));
-
         // Normalize existing URLs (remove .git and trailing slashes) for comparison
         const existingUrls = initialProjects.map(p => 
           p.github.toLowerCase().replace(/\.git$/, '').replace(/\/$/, '')
         );
 
-        const newProjects = fetchedProjects.filter(
-          repo => !existingUrls.includes(repo.github.toLowerCase().replace(/\/$/, '')) && repo.title !== "sachintha2001"
+        const validRepos = repos.filter(
+          (repo: any) => 
+            !repo.fork && 
+            repo.name !== "sachintha2001" &&
+            !existingUrls.includes(repo.html_url.toLowerCase().replace(/\/$/, ''))
+        );
+
+        const newProjects: Project[] = await Promise.all(
+          validRepos.map(async (repo: any) => {
+            let tags: string[] = repo.topics && repo.topics.length > 0 ? [...repo.topics] : [];
+            
+            try {
+              const langRes = await fetch(repo.languages_url);
+              if (langRes.ok) {
+                const languages = await langRes.json();
+                const languageNames = Object.keys(languages);
+                tags = Array.from(new Set([...tags, ...languageNames]));
+              }
+            } catch (err) {
+              console.error("Error fetching languages for", repo.name);
+            }
+
+            if (tags.length === 0 && repo.language) {
+              tags = [repo.language];
+            }
+
+            return {
+              id: repo.id.toString(),
+              title: repo.name.replace(/[-_]/g, " "),
+              description: repo.description || "No description provided.",
+              longDescription: repo.description || "No description provided for this repository.",
+              image: `https://opengraph.githubassets.com/1/sachintha2001/${repo.name}`,
+              tags,
+              github: repo.html_url,
+              demo: repo.homepage && repo.homepage !== "" ? repo.homepage : "#",
+              featured: false,
+            };
+          })
         );
 
         setProjects([...initialProjects, ...newProjects]);
