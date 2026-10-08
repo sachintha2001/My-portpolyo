@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Search, X } from "lucide-react";
 import { Github } from "@/components/icons";
-import Image from "next/image";
 
 type Project = {
   id: string;
@@ -164,7 +163,7 @@ export function ProjectsSection() {
         );
 
         const newProjects = fetchedProjects.filter(
-          repo => !existingUrls.includes(repo.github.toLowerCase().replace(/\/$/, '')) && repo.name !== "sachintha2001"
+          repo => !existingUrls.includes(repo.github.toLowerCase().replace(/\/$/, '')) && repo.title !== "sachintha2001"
         );
 
         setProjects([...initialProjects, ...newProjects]);
