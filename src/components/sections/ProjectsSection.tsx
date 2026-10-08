@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Search, X } from "lucide-react";
 import { Github } from "@/components/icons";
@@ -18,7 +18,7 @@ type Project = {
   featured?: boolean;
 };
 
-const projectsData: Project[] = [
+const initialProjects: Project[] = [
   {
     id: "iot-irrigation",
     title: "IoT-Enabled Precision Irrigation Management Using LoRaWAN",
@@ -133,10 +133,50 @@ const projectsData: Project[] = [
 ];
 
 export function ProjectsSection() {
+  const [projects, setProjects] = useState<Project[]>(initialProjects);
   const [search, setSearch] = useState("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const filteredProjects = projectsData.filter((project) =>
+  useEffect(() => {
+    const fetchGitHubProjects = async () => {
+      try {
+        const response = await fetch("https://api.github.com/users/sachintha2001/repos?sort=updated&per_page=100");
+        if (!response.ok) throw new Error("Failed to fetch");
+        const repos = await response.json();
+
+        const fetchedProjects: Project[] = repos
+          .filter((repo: any) => !repo.fork) // Exclude forks
+          .map((repo: any) => ({
+            id: repo.id.toString(),
+            title: repo.name.replace(/[-_]/g, " "),
+            description: repo.description || "No description provided.",
+            longDescription: repo.description || "No description provided for this repository.",
+            image: `https://opengraph.githubassets.com/1/sachintha2001/${repo.name}`,
+            tags: repo.topics && repo.topics.length > 0 ? repo.topics : (repo.language ? [repo.language] : []),
+            github: repo.html_url,
+            demo: repo.homepage && repo.homepage !== "" ? repo.homepage : "#",
+            featured: false,
+          }));
+
+        // Normalize existing URLs (remove .git and trailing slashes) for comparison
+        const existingUrls = initialProjects.map(p => 
+          p.github.toLowerCase().replace(/\.git$/, '').replace(/\/$/, '')
+        );
+
+        const newProjects = fetchedProjects.filter(
+          repo => !existingUrls.includes(repo.github.toLowerCase().replace(/\/$/, '')) && repo.name !== "sachintha2001"
+        );
+
+        setProjects([...initialProjects, ...newProjects]);
+      } catch (error) {
+        console.error("Error fetching GitHub projects:", error);
+      }
+    };
+
+    fetchGitHubProjects();
+  }, []);
+
+  const filteredProjects = projects.filter((project) =>
     project.title.toLowerCase().includes(search.toLowerCase()) ||
     project.tags.some(tag => tag.toLowerCase().includes(search.toLowerCase()))
   );
