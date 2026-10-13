@@ -28,30 +28,7 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #0B1120;
-  
-  --primary: #3B82F6;
-  --primary-foreground: #ffffff;
-  
-  --accent: #8B5CF6;
-  --accent-foreground: #ffffff;
-
-  --secondary: #14B8A6;
-  --secondary-foreground: #ffffff;
-
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #3B82F6;
-
-  --radius: 0.5rem;
-}
-
-.dark {
-  --background: #0B1120;
+  --background: #070a13;
   --foreground: #F8FAFC;
   
   --primary: #3B82F6;
@@ -63,7 +40,30 @@
   --secondary: #14B8A6;
   --secondary-foreground: #ffffff;
 
-  --muted: #1e293b;
+  --muted: #0f172a;
+  --muted-foreground: #94a3b8;
+
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #3B82F6;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #070a13;
+  --foreground: #F8FAFC;
+  
+  --primary: #3B82F6;
+  --primary-foreground: #ffffff;
+  
+  --accent: #8B5CF6;
+  --accent-foreground: #ffffff;
+
+  --secondary: #14B8A6;
+  --secondary-foreground: #ffffff;
+
+  --muted: #0f172a;
   --muted-foreground: #94a3b8;
 
   --border: #1e293b;
@@ -75,8 +75,14 @@
   * {
     @apply border-border;
   }
+  html {
+    background-color: #070a13;
+    color: #F8FAFC;
+    color-scheme: dark;
+  }
   body {
-    @apply bg-background text-foreground;
+    background-color: #070a13;
+    color: #F8FAFC;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

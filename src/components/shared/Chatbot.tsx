@@ -102,18 +102,44 @@ export function Chatbot() {
         {!isOpen && (
           <motion.button
             initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            animate={{ 
+              scale: 1, 
+              opacity: 1,
+              y: [0, -6, 0]
+            }}
+            transition={{
+              scale: { duration: 0.3 },
+              opacity: { duration: 0.3 },
+              y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+            }}
             exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 p-4 bg-primary text-primary-foreground rounded-full shadow-2xl hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all flex items-center justify-center group"
+            className="fixed bottom-6 right-6 z-50 p-1 bg-slate-900/90 border-2 border-cyan-400/60 rounded-full shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_40px_rgba(6,182,212,0.8)] transition-all flex items-center justify-center group backdrop-blur-xl"
+            title="Chat with Sachintha AI Robot"
           >
-            <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-20 group-hover:opacity-40" />
-            <MessageSquare className="w-6 h-6 relative z-10" />
-            <span className="absolute -top-1 -right-1 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            {/* Glowing Pulse Aura */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full animate-ping opacity-25 pointer-events-none" />
+            
+            {/* 3D Robot Avatar Icon */}
+            <div className="w-14 h-14 rounded-full overflow-hidden relative z-10 border border-white/20">
+              <img 
+                src="/robot-avatar.jpg" 
+                alt="3D Robot AI Assistant" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+
+            {/* Live Online Ping Badge */}
+            <span className="absolute top-0 right-0 flex h-3.5 w-3.5 z-20">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-slate-950"></span>
+            </span>
+
+            {/* Floating Tooltip Pill */}
+            <span className="absolute right-full mr-3 px-3 py-1.5 rounded-xl bg-slate-900/95 border border-white/10 text-xs font-mono font-medium text-cyan-300 whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none backdrop-blur-md hidden sm:block">
+              Chat with AI Robot ⚡
             </span>
           </motion.button>
         )}
@@ -127,22 +153,31 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-6 right-6 z-50 w-[90vw] max-w-[400px] h-[600px] max-h-[85vh] bg-background border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden glass-card"
+            className="fixed bottom-6 right-6 z-50 w-[90vw] max-w-[400px] h-[600px] max-h-[85vh] bg-slate-950/90 border border-white/15 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(6,182,212,0.25)] flex flex-col overflow-hidden backdrop-blur-2xl"
           >
             {/* Header */}
-            <div className="p-4 border-b border-white/10 bg-muted/30 flex items-center justify-between backdrop-blur-md">
+            <div className="p-4 border-b border-white/10 bg-slate-900/80 flex items-center justify-between backdrop-blur-md">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
-                    <Sparkles className="w-5 h-5 text-primary" />
+                  <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-cyan-400/60 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                    <img 
+                      src="/robot-avatar.jpg" 
+                      alt="Sachintha AI" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-background" />
+                  <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-slate-950" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm">Sachintha AI</h3>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1">
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Online
+                  <h3 className="font-bold text-sm font-outfit text-white flex items-center gap-1.5">
+                    Sachintha AI
+                    <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                      BOT
+                    </span>
+                  </h3>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1 font-mono">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    Online • Neural Engine
                   </p>
                 </div>
               </div>
@@ -171,8 +206,12 @@ export function Chatbot() {
                   className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   {msg.role === "assistant" && (
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/30">
-                      <Sparkles className="w-4 h-4 text-primary" />
+                    <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-cyan-400/50 shadow-sm mt-0.5">
+                      <img 
+                        src="/robot-avatar.jpg" 
+                        alt="AI" 
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   )}
                   
