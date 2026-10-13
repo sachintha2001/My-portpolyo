@@ -243,26 +243,6 @@ function DynamicCursorLight() {
   return <pointLight ref={lightRef} color="#06B6D4" intensity={2} distance={8} decay={2} />;
 }
 
-// Floating Decorative Tech Nodes on the left side
-function FloatingTechMesh() {
-  return (
-    <Float speed={1.5} rotationIntensity={1.2} floatIntensity={1.5}>
-      <group position={[-2.4, -0.6, -1]} scale={0.7}>
-        <mesh>
-          <octahedronGeometry args={[0.5, 0]} />
-          <meshStandardMaterial
-            color="#8B5CF6"
-            emissive="#8B5CF6"
-            emissiveIntensity={0.6}
-            wireframe
-          />
-        </mesh>
-        <pointLight color="#8B5CF6" intensity={1.5} distance={3} />
-      </group>
-    </Float>
-  );
-}
-
 export function HeroScene() {
   return (
     <div className="absolute inset-0 pointer-events-none z-0">
@@ -275,13 +255,11 @@ export function HeroScene() {
         }}
         dpr={[1, 1.5]}
       >
-        <color attach="background" args={["transparent"]} />
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} color="#ffffff" />
         <DynamicCursorLight />
         <CyberNebula />
         <CyberCore />
-        <FloatingTechMesh />
         <CameraRig />
       </Canvas>
     </div>

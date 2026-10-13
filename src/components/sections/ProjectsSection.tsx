@@ -12,7 +12,7 @@ const initialProjects: Project[] = [
     title: "IoT-Enabled Precision Irrigation Management Using LoRaWAN",
     description: "A smart irrigation system monitoring soil conditions using IoT sensors and LoRaWAN to optimize water usage in real-time.",
     longDescription: "Developed an intelligent irrigation system designed to improve agricultural efficiency through IoT technologies. The system integrates smart sensors and embedded systems to monitor environmental conditions and support data-driven irrigation decisions. It utilizes LoRaWAN for long-range, low-power communication, sending real-time sensor data to a cloud dashboard.",
-    image: "https://images.unsplash.com/photo-1592982537447-6f2a6a0c5c36?auto=format&fit=crop&q=80&w=800",
+    image: "/projects/iot-irrigation.jpg",
     tags: ["LoRaWAN", "ESP8266", "AWS", "Machine Learning", "Arduino", "Cloud Dashboard"],
     github: "https://github.com/sachintha2001/FlowPilot-Web.git",
     demo: "https://youtu.be/NtfjQ5Z6b2k?si=b066UP715DNP5pBh",
