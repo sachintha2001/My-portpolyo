@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, ExternalLink, Play, Layers, Radio, Cpu, Sparkles, Filter } from "lucide-react";
 import { Github } from "@/components/icons";
 import { ProjectCard3D, Project } from "@/components/3d/ProjectCard3D";
+import { generateProjectWebImage } from "@/lib/projectImageGenerator";
 
 const initialProjects: Project[] = [
   {
@@ -176,7 +177,13 @@ export function ProjectsSection() {
               title: repo.name.replace(/[-_]/g, " "),
               description: repo.description || "Open source software project repository.",
               longDescription: repo.description || "Comprehensive codebase maintained on GitHub.",
-              image: `https://opengraph.githubassets.com/1/sachintha2001/${repo.name}`,
+              image: generateProjectWebImage({
+                name: repo.name,
+                description: repo.description,
+                language: repo.language,
+                topics: tags,
+                homepage: repo.homepage,
+              }),
               tags,
               github: repo.html_url,
               demo: repo.homepage && repo.homepage !== "" ? repo.homepage : "#",
@@ -387,6 +394,9 @@ export function ProjectsSection() {
                     <img
                       src={selectedProject.image}
                       alt={selectedProject.title}
+                      onError={(e) => {
+                        e.currentTarget.src = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800";
+                      }}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />

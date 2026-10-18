@@ -127,6 +127,9 @@ export function ProjectCard3D({ project, index, onSelect }: ProjectCard3DProps) 
           <img
             src={project.image}
             alt={project.title}
+            onError={(e) => {
+              e.currentTarget.src = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800";
+            }}
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
           />
           {/* Subtle Cyber Gradient Overlay */}
