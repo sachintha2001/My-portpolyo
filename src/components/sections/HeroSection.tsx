@@ -11,7 +11,8 @@ import {
   Radio, 
   Layers, 
   ChevronRight,
-  Code2
+  Code2,
+  Trophy
 } from "lucide-react";
 import Link from "next/link";
 import { HeroScene } from "@/components/3d/HeroScene";
@@ -19,7 +20,8 @@ import { HolographicCard } from "@/components/3d/HolographicCard";
 
 export function HeroSection() {
   const roles = [
-    { title: "Software Engineering Student", icon: <Terminal className="w-4 h-4 text-primary" /> },
+    { title: "BSc (Hons) SE — First Class Graduate", icon: <Trophy className="w-4 h-4 text-amber-400" /> },
+    { title: "Best Dissertation Award Winner", icon: <Terminal className="w-4 h-4 text-primary" /> },
     { title: "Full-Stack Software Engineer", icon: <Code2 className="w-4 h-4 text-cyan-400" /> },
     { title: "AI & Machine Learning Enthusiast", icon: <Cpu className="w-4 h-4 text-violet-400" /> },
     { title: "IoT Innovator (LoRaWAN & Cloud)", icon: <Radio className="w-4 h-4 text-emerald-400" /> },
@@ -27,10 +29,10 @@ export function HeroSection() {
   ];
 
   const quickStats = [
+    { value: "1st Class", label: "BSc (Hons) Degree" },
+    { value: "Gold Medal", label: "Best Dissertation" },
     { value: "20+", label: "Projects Completed" },
-    { value: "15+", label: "Tech Mastered" },
-    { value: "11+", label: "Certifications" },
-    { value: "CINEC", label: "SE Undergraduate" },
+    { value: "12+", label: "Certs & Honors" },
   ];
 
   const techBadges = [
@@ -140,11 +142,15 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-sans"
             >
-              Dedicated{" "}
+              <span className="text-amber-300 font-bold">First Class Honours</span>{" "}
               <span className="text-white font-bold underline decoration-blue-500/50 underline-offset-4">
-                Software Engineering
+                BSc (Hons) Software Engineering
               </span>{" "}
-              student at CINEC Campus crafting scalable software architectures. Passionate about{" "}
+              graduate from CINEC Campus (University of Wolverhampton) and recipient of the{" "}
+              <span className="text-amber-400 font-semibold">
+                Special Award for Best Dissertation
+              </span>
+              . Passionate about{" "}
               <span className="text-cyan-400 font-semibold">
                 IoT Innovation (LoRaWAN & AWS)
               </span>
@@ -152,7 +158,7 @@ export function HeroSection() {
               <span className="text-violet-400 font-semibold">
                 AI Machine Learning Systems
               </span>
-              , and high-performance Web Applications.
+              , and scalable enterprise software architectures.
             </motion.p>
 
             {/* Quick Tech Stack Pills */}

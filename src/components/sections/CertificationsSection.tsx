@@ -1,9 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, ExternalLink, ShieldCheck, CheckCircle2, Sparkles } from "lucide-react";
+import { Award, ExternalLink, ShieldCheck, CheckCircle2, Trophy } from "lucide-react";
 
 const certifications = [
+  {
+    title: "Special Award: Best Dissertation (Gold Medal)",
+    organization: "CINEC Campus / University of Wolverhampton (UOW)",
+    date: "2026 • Batch 13",
+    id: "CINEC-UOW-BEST-DISS-B13",
+    link: "#education",
+    status: "Special Gold Medal",
+    badgeColor: "text-amber-300 bg-amber-500/15 border-amber-400/40",
+    featured: true,
+    image: "/awards/best-dissertation-medal.jpg",
+  },
+  {
+    title: "BSc (Hons) Computer Science (Software Engineering)",
+    organization: "CINEC Campus / University of Wolverhampton (UOW)",
+    date: "Graduated 2026",
+    id: "UOW-CINEC-BSC-1ST",
+    link: "#education",
+    status: "First Class Honours",
+    badgeColor: "text-amber-300 bg-amber-500/15 border-amber-400/40",
+    featured: true,
+  },
   {
     title: "Python Programming Specialization",
     organization: "University of Moratuwa",
@@ -78,14 +99,14 @@ export function CertificationsSection() {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono uppercase tracking-widest mb-4">
             <ShieldCheck className="w-3.5 h-3.5" />
-            Accreditation & Badges
+            Accreditation &amp; Academic Honors
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-outfit mb-4 text-foreground tracking-tight">
-            Verified <span className="text-gradient">Certifications & Honors</span>
+            Verified <span className="text-gradient">Certifications &amp; Honors</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground text-base sm:text-lg">
-            Recognized academic and industry credentials authenticating expertise in Python engineering, enterprise architecture, and computer science.
+            Recognized academic honors, First Class degree distinction, and industry credentials authenticating expertise in software engineering, AI, and IoT systems.
           </p>
         </motion.div>
 
@@ -99,7 +120,11 @@ export function CertificationsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
               whileHover={{ y: -6, scale: 1.02 }}
-              className="rounded-3xl p-6 sm:p-7 border border-white/10 bg-slate-900/60 hover:bg-slate-900/85 backdrop-blur-xl transition-all duration-300 hover:border-primary/40 shadow-xl hover:shadow-[0_15px_35px_rgba(59,130,246,0.18)] flex flex-col justify-between group relative overflow-hidden"
+              className={`rounded-3xl p-6 sm:p-7 border backdrop-blur-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${
+                cert.featured
+                  ? "border-amber-400/40 bg-gradient-to-b from-amber-500/10 via-slate-900/80 to-slate-900/90 shadow-[0_15px_40px_rgba(245,158,11,0.18)]"
+                  : "border-white/10 bg-slate-900/60 hover:bg-slate-900/85 hover:border-primary/40 shadow-xl hover:shadow-[0_15px_35px_rgba(59,130,246,0.18)]"
+              }`}
             >
               {/* Corner Glare Watermark */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/15 transition-colors duration-500 pointer-events-none" />
@@ -107,23 +132,46 @@ export function CertificationsSection() {
               <div>
                 {/* Header Status Row */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-300 text-cyan-400">
-                    <Award className="w-6 h-6" />
+                  <div
+                    className={`p-3 rounded-2xl border group-hover:scale-110 transition-transform duration-300 ${
+                      cert.featured
+                        ? "bg-amber-500/15 border-amber-400/30 text-amber-400"
+                        : "bg-white/5 border-white/5 text-cyan-400"
+                    }`}
+                  >
+                    {cert.featured ? <Trophy className="w-6 h-6" /> : <Award className="w-6 h-6" />}
                   </div>
                   <span className={`text-[10px] font-mono font-bold tracking-wider px-2.5 py-1 rounded-full border ${cert.badgeColor}`}>
                     {cert.status}
                   </span>
                 </div>
 
-                {/* Title */}
-                <h3 className="font-bold font-outfit text-lg sm:text-xl text-white group-hover:text-primary transition-colors leading-snug mb-2">
-                  {cert.title}
-                </h3>
-
-                {/* Organization */}
-                <p className="text-sm font-medium text-slate-300 mb-6">
-                  {cert.organization}
-                </p>
+                {/* Title & Optional Medal Thumbnail */}
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="font-bold font-outfit text-lg sm:text-xl text-white group-hover:text-primary transition-colors leading-snug mb-2">
+                      {cert.title}
+                    </h3>
+                    <p className="text-sm font-medium text-slate-300 mb-6">
+                      {cert.organization}
+                    </p>
+                  </div>
+                  {cert.image && (
+                    <a
+                      href="#education"
+                      className="shrink-0 w-16 aspect-[455/555] rounded-xl overflow-hidden border border-amber-400/40 shadow-md group-hover:scale-105 transition-transform"
+                    >
+                      <img
+                        src={cert.image}
+                        alt={cert.title}
+                        loading="lazy"
+                        width={91}
+                        height={111}
+                        className="w-full h-full object-cover"
+                      />
+                    </a>
+                  )}
+                </div>
               </div>
 
               {/* Bottom Verification Details & Action */}
@@ -132,11 +180,11 @@ export function CertificationsSection() {
                 {cert.link && cert.link !== "#" ? (
                   <a
                     href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={cert.link.startsWith("#") ? undefined : "_blank"}
+                    rel={cert.link.startsWith("#") ? undefined : "noopener noreferrer"}
                     className="flex items-center gap-1.5 text-cyan-400 hover:text-white transition-colors font-semibold group/link"
                   >
-                    <span>Verify</span>
+                    <span>{cert.link.startsWith("#") ? "View Award" : "Verify"}</span>
                     <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                   </a>
                 ) : (

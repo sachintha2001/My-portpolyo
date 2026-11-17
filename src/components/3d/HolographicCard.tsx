@@ -2,7 +2,7 @@
 
 import { useState, useRef, MouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Sparkles, Terminal, Cpu, Radio, ShieldCheck } from "lucide-react";
+import { Sparkles, Terminal, Cpu, Radio, ShieldCheck, Trophy } from "lucide-react";
 
 export function HolographicCard() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -117,6 +117,7 @@ export function HolographicCard() {
           <img
             src="/me.jpg"
             alt="R.K Sachintha Dhansanka"
+            fetchPriority="high"
             className="w-full h-full object-cover object-top transition-transform duration-700 ease-out hover:scale-105"
           />
 
@@ -124,13 +125,22 @@ export function HolographicCard() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
 
           {/* Floating Telemetry Badges in 3D Space */}
+          {/* Top-Left First Class & Best Dissertation Honor Badge */}
+          <div
+            style={{ transform: "translateZ(45px)" }}
+            className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-md border border-amber-400/50 text-amber-300 text-[11px] font-semibold shadow-[0_0_15px_rgba(245,158,11,0.3)]"
+          >
+            <Trophy className="w-3.5 h-3.5 text-amber-400" />
+            <span>1st Class • Best Dissertation</span>
+          </div>
+
           {/* Top-Right Certification Badge */}
           <div
             style={{ transform: "translateZ(45px)" }}
             className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-violet-500/40 text-violet-300 text-xs font-medium shadow-lg"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-violet-400" />
-            <span>11+ Certs</span>
+            <span>12+ Honors</span>
           </div>
 
           {/* Bottom Floating Info Card */}
@@ -144,7 +154,7 @@ export function HolographicCard() {
                   Sachintha Dhansanka
                   <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 </p>
-                <p className="text-[11px] text-cyan-400 font-mono">Software Engineer & Architect</p>
+                <p className="text-[11px] text-cyan-400 font-mono">BSc (Hons) SE • First Class</p>
               </div>
 
               {/* Live Status Pill */}
@@ -174,11 +184,11 @@ export function HolographicCard() {
           style={{ transform: "translateZ(25px)" }}
           className="mt-2.5 px-3 py-1.5 flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-white/5"
         >
-          <span className="flex items-center gap-1">
-            <span className="inline-block w-1 h-1 bg-cyan-400 rounded-full" />
-            CINEC Campus SE
+          <span className="flex items-center gap-1 text-amber-300/90">
+            <span className="inline-block w-1.5 h-1.5 bg-amber-400 rounded-full" />
+            1st Class Hons • CINEC / UOW
           </span>
-          <span className="text-cyan-400/80">3D PERSPECTIVE: ACTIVE</span>
+          <span className="text-cyan-400/80">BATCH 13 GOLD MEDALIST</span>
         </div>
       </motion.div>
     </div>

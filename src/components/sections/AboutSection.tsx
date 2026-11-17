@@ -19,9 +19,9 @@ import { AboutGlobe3D } from "@/components/3d/AboutGlobe3D";
 export function AboutSection() {
   const stats = [
     { label: "Projects Built", value: "20+", icon: FolderGit2, color: "text-blue-400", border: "border-blue-500/30" },
-    { label: "Tech Mastered", value: "15+", icon: Layers, color: "text-cyan-400", border: "border-cyan-500/30" },
-    { label: "Research Activities", value: "3+", icon: Compass, color: "text-violet-400", border: "border-violet-500/30" },
-    { label: "Certifications", value: "11+", icon: Award, color: "text-amber-400", border: "border-amber-500/30" },
+    { label: "Degree Class", value: "1st Class", icon: Layers, color: "text-amber-400", border: "border-amber-500/30" },
+    { label: "Special Honor", value: "Best Diss.", icon: Compass, color: "text-cyan-400", border: "border-cyan-500/30" },
+    { label: "Certs & Honors", value: "12+", icon: Award, color: "text-violet-400", border: "border-violet-500/30" },
   ];
 
   const pillars = [
@@ -80,7 +80,7 @@ export function AboutSection() {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground text-base sm:text-lg">
-            Software Engineering undergraduate at CINEC Campus with an unwavering commitment to writing high-performance code, building distributed systems, and mastering next-generation computing.
+            First Class Honours BSc (Hons) Software Engineering graduate from CINEC Campus (University of Wolverhampton) and recipient of the Best Dissertation Special Award, dedicated to writing high-performance code and building distributed systems.
           </p>
         </motion.div>
 
@@ -97,9 +97,9 @@ export function AboutSection() {
           >
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-                <span className="text-xs font-mono text-cyan-400 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                  SE UNDERGRADUATE • CINEC CAMPUS
+                <span className="text-xs font-mono text-amber-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  1ST CLASS HONOURS • BEST DISSERTATION GOLD MEDALIST
                 </span>
                 <span className="text-xs font-mono text-slate-400">TARGET: SOFTWARE ARCHITECT</span>
               </div>
@@ -109,7 +109,7 @@ export function AboutSection() {
               </h3>
 
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mb-4">
-                I am a dedicated Software Engineering student driven by solving complex real-world challenges through data-driven engineering. My focus ranges from developing <span className="text-cyan-400 font-semibold">IoT precision irrigation platforms using LoRaWAN</span> to crafting machine learning models that predict disease patterns from clinical datasets.
+                I am a <span className="text-amber-300 font-semibold">First Class Honours Software Engineering graduate</span> and <span className="text-amber-400 font-semibold">Best Dissertation Special Award winner</span> driven by solving complex real-world challenges through data-driven engineering. My focus ranges from developing <span className="text-cyan-400 font-semibold">IoT precision irrigation platforms using LoRaWAN</span> to crafting machine learning models that predict disease patterns from clinical datasets.
               </p>
 
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
@@ -133,10 +133,10 @@ export function AboutSection() {
 
               <p><span className="text-violet-400">const</span> <span className="text-blue-400">engineer</span> = &#123;</p>
               <p className="pl-4"><span className="text-cyan-300">name</span>: <span className="text-emerald-300">&quot;R.K Sachintha Dhansanka&quot;</span>,</p>
-              <p className="pl-4"><span className="text-cyan-300">institution</span>: <span className="text-emerald-300">&quot;CINEC Campus Faculty of IT&quot;</span>,</p>
+              <p className="pl-4"><span className="text-cyan-300">degree</span>: <span className="text-amber-300">&quot;BSc (Hons) Software Engineering — First Class Honours&quot;</span>,</p>
+              <p className="pl-4"><span className="text-cyan-300">specialAward</span>: <span className="text-amber-300">&quot;Best Dissertation Gold Medal (CINEC / UOW Batch 13)&quot;</span>,</p>
               <p className="pl-4"><span className="text-cyan-300">coreDisciplines</span>: [<span className="text-emerald-300">&quot;Software Architecture&quot;</span>, <span className="text-emerald-300">&quot;AI/ML&quot;</span>, <span className="text-emerald-300">&quot;LoRaWAN IoT&quot;</span>],</p>
-              <p className="pl-4"><span className="text-cyan-300">designPatterns</span>: [<span className="text-emerald-300">&quot;Clean Architecture&quot;</span>, <span className="text-emerald-300">&quot;TDD&quot;</span>, <span className="text-emerald-300">&quot;Microservices&quot;</span>],</p>
-              <p className="pl-4"><span className="text-cyan-300">status</span>: <span className="text-amber-300">&quot;Ready for Next Engineering Challenge&quot;</span></p>
+              <p className="pl-4"><span className="text-cyan-300">status</span>: <span className="text-emerald-300">&quot;Graduated &amp; Ready for Engineering Challenges&quot;</span></p>
               <p>&#125;;</p>
             </div>
           </motion.div>

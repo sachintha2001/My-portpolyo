@@ -12,15 +12,15 @@ if (typeof window !== "undefined") {
 
 const experiences = [
   {
-    title: "BSc (Hons) in Software Engineering",
-    organization: "CINEC Campus",
+    title: "BSc (Hons) in Software Engineering — First Class Honours",
+    organization: "CINEC Campus (University of Wolverhampton - UOW)",
     period: "2025 - 2026",
-    status: "CURRENTLY ENROLLED",
-    description: "Reading for BSc in Software Engineering. Key subjects: Advanced Software Engineering, Artificial Intelligence (AI), Secure Mobile Applications, and High Performance Computing (C, CUDA). Actively conducting academic research as an IoT Systems Developer.",
-    icon: <GraduationCap className="w-5 h-5 text-blue-400" />,
+    status: "1ST CLASS & BEST DISSERTATION",
+    description: "Graduated with First Class Honours in BSc (Hons) Computer Science (Software Engineering) and awarded the Special Gold Medal for Best Dissertation (Batch 13). Key modules covered Advanced Software Engineering, Artificial Intelligence (AI), Secure Mobile Applications, and High Performance Computing (C, CUDA).",
+    icon: <GraduationCap className="w-5 h-5 text-amber-400" />,
     category: "Academic Degree",
-    tags: ["Software Architecture", "AI & ML", "CUDA", "IoT Research", "CINEC"],
-    badgeColor: "bg-blue-500/10 border-blue-500/30 text-blue-300",
+    tags: ["First Class Honours", "Best Dissertation Award", "Software Architecture", "AI & ML", "CUDA", "IoT Research"],
+    badgeColor: "bg-amber-500/15 border-amber-400/40 text-amber-300",
   },
   {
     title: "Full-Stack Software Developer",

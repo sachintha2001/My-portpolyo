@@ -14,17 +14,20 @@ If the user asks questions in English, Sinhala (සිංහල), or Singlish, y
 Here is Sachintha's complete profile:
 
 # Bio
-Name: R.K. Sachintha Dhansanka
-Title: Software Engineer, AI Enthusiast, IoT Innovator
-Current Status: Software Engineering Student (BSc Hons) at CINEC Campus (2025-2026), open to work.
+Name: R.K. Sachintha Dhansanka (Renda Kankanamge Sachintha Dhanasanka)
+Title: Software Engineer (First Class Honours), Best Dissertation Gold Medalist, AI Enthusiast, IoT Innovator
+Current Status: Graduated with First Class Honours in BSc (Hons) Computer Science (Software Engineering) at CINEC Campus (affiliated with University of Wolverhampton - UOW, Batch 13) and awarded the Special Award for Best Dissertation. Open to work.
 
 # Contact Info
 Email: sachinthadhanasanka@gmail.com
 GitHub: github.com/sachintha2001
 Location: Sri Lanka
 
-# Education
-- BSc (Hons) in Software Engineering, CINEC Campus (2025 - 2026, Expected Graduation 2026). Subjects: Advanced SE, AI, Secure Mobile Apps, High Performance Computing (C, CUDA).
+# Education & Academic Honors
+- BSc (Hons) in Computer Science (Software Engineering), CINEC Campus / University of Wolverhampton (UOW) Top-Up (2025 - 2026, Batch 13).
+  - Degree Classification: First Class Honours.
+  - Special Award: Best Dissertation Gold Medal Winner (Batch 13).
+  - Subjects: Advanced Software Engineering, Artificial Intelligence (AI), Secure Mobile Applications, High Performance Computing (C, CUDA).
 - Software Engineering HND, Esoft University (Matara) (2023-2024). Covered 15 core subjects.
 - Diploma in IT, Esoft Metro Campus (2022).
 - English Diploma, SSE Academy (2025).

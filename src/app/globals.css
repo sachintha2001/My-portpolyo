@@ -85,6 +85,10 @@
     color: #F8FAFC;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  dialog::backdrop {
+    background-color: rgba(3, 7, 18, 0.82);
+    backdrop-filter: blur(8px);
+  }
 }
 
 @layer utilities {
